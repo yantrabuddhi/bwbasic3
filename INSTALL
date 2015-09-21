@@ -1,0 +1,75 @@
+Some Notes on Installation of the Bywater BASIC Interpreter:
+-----------------------------------------------------------
+
+0. Quick-Start Guide For Compiling
+
+   To use the default configuration (which is reasonable for most situations):
+
+   On Unix, type "configure; make".
+   On Android using CCTools, type "ash ./xxc.sh".
+   If you are using GCC with the default libraries on a flavor of Unix,
+   then perhaps "gcc -DHAVE_ISNAN -o bwbasic -lm -ansi bw*.c"
+   On MSDOS, add all the bw*.c file to a new project.
+
+   You can skip the rest of this file unless you want to customize the
+   BASIC dialect that is supported, or something goes wrong in the
+   above commands.
+
+
+1. Compiler Requirements
+
+   ANSI C.
+
+
+2. Configuration of header files
+
+   You may need to examine file "bwbasic.h" to make important
+   changes for specific hardware and compiler configurations.
+
+
+3. Makefiles
+
+   Several compiler-specific makefiles are provided AS-IS,
+   and have not been tested with version 3.00.
+   
+   "makefile" will compile the
+   program on Unix-based computers. 
+      
+   "makefile.qcl" is for the Microsoft QuickC (tm).
+
+   I have also compiled the program utilizing 
+   Borland's Turbo C++ (tm) and Pacific C (tm) 
+   on DOS-based machines.
+
+   
+4. Implementations
+
+   TTY is the base implementation and presumes a simple
+   TTY-style environment, with all keyboard and screen input
+   and output directed through stdin and stdout.  All commands,
+   functions and operators should be available in the TTY 
+   implementation, even when they do nothing.  For example, 
+   CLS, COLOR and LOCATE do nothing when OPTION TERMINAL NONE 
+   is specified.  This allows exising classic BASIC applications 
+   to execute.
+   
+   
+5. Adding Commands and Functions
+
+   Follow the rules in "Implementation rules for functions and commands";
+   the majority of BASIC commands are actually intrinsic functions.
+   Adding a new command is more work than adding a new function.   
+
+   In order to add a new command to bwBASIC:
+
+      Search for C_WRITE and bwb_WRITE,
+      and add your command's eqivalent information in the same places.
+      The last command's unique number should equal NUM_COMMANDS.
+
+   Adding a new function is easier:
+   
+      Search for F_ABS_X_N, 
+      and add your function's equivalent information in the same places.
+      The last function's unique number should equal NUM_FUNCTIONS.
+      
+

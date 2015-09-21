@@ -1,0 +1,520 @@
+
+
+                              README file for
+
+
+               Bywater BASIC Interpreter, version 3.00
+               ---------------------------------------------
+
+                    Copyright (c) 1993, Ted A. Campbell
+                  for bwBASIC version 2.10, 11 October 1993
+
+               Version 2.20 modifications by Jon B. Volkoff,
+                             25 November 1995
+
+                  Patch level 1 release by Jon B. Volkoff,
+                              15 March 1996
+
+                  Patch level 2 release by Jon B. Volkoff,
+                             11 October 1997
+
+               Version 2.30 modifications by Paul Edwards,
+                               5 March 2008
+
+               Version 2.40 modifications by Paul Edwards,
+                                26 Jan 2009
+
+               Version 2.50 modifications by Paul Edwards,
+                                4 June 2009
+
+               Version 2.60 modifications by Paul Edwards,
+                              6 November 2012
+
+               Version 2.61 modifications by Paul Edwards,
+                              4 August 2014
+
+               Version 3.00 modifications by Howard Wulf, AF5NE
+                               12 May 2015
+
+
+
+
+
+DESCRIPTION:
+
+   The Bywater BASIC Interpreter (bwBASIC) implements a large
+   superset of the ANSI Standard for Minimal BASIC (X3.60-1978)
+   and a significant subset of the ANSI Standard for Full BASIC
+   (X3.113-1987) in C. It also offers shell programming facilities
+   as an extension of BASIC. bwBASIC seeks to be as portable
+   as possible.
+
+   This version of Bywater BASIC is released under the terms of the 
+   GNU General Public License (GPL), which is distributed with this 
+   software in the file "COPYING".  The GPL specifies the terms 
+   under which users may copy and use the software in this distribution.
+
+   A separate license is available for commercial distribution,
+   for information on which you should contact the author.
+
+
+
+OBTAINING THE SOURCE CODE:
+
+   The source code for bwBASIC is available from
+   http://bwbasic.sourceforge.net
+
+
+
+COMMUNICATIONS:
+
+   email:  tcamp@delphi.com  (for Ted Campbell)
+           eidetics@cerf.net (for Jon Volkoff)
+           fight.subjugation@gmail.com (for Paul Edwards)
+
+
+A LIST OF BASIC COMMANDS AND FUNCTIONS IMPLEMENTED in bwBASIC:
+
+   Be aware that many of these commands and functions will not be
+   available unless you have enabled a particular dialect using
+   the OPTION VERSION command. 
+
+     ? expressions...
+     ABS( X )
+     ACOS( X )
+     ANGLE( X, Y )
+     ARGC
+     ARGT$( X )
+     ARGV$( X )
+     ARGV( X )
+     ASC( A$ )
+     ASIN( X )
+     ATN( X )
+     CALL subroutine-name [parameter [, ...] ]
+     CASE ELSE
+     CASE IF partial-expression
+     CASE IS
+     CASE constant
+     CCUR( X )
+     CDBL( X )
+     CEIL( X )
+     CHAIN filename$
+     CHANGE A$ TO X | CHANGE X TO A$
+     CHDIR( A$ )
+     CHR$( X )
+     CINT( X )
+     CLEAR
+     CLNG( X )
+     CLOAD [file-name$]
+     CLOAD* ArrayName
+     CLOSE( X )
+     CLS
+     CMDS
+     COLOR( X, Y )
+     COMMON variable [, ...]
+     CONT
+     COS( X )
+     COSH( X )
+     COT( X )
+     CSAVE [file-name$]
+     CSAVE* ArrayName
+     CSC( X )
+     CSNG( X )
+     CVC( A$ )
+     CVD( A$ )
+     CVI( A$ )
+     CVL( A$ )
+     CVS( A$ )
+     DATA constant[, ...]
+     DATE
+     DATE$
+     DEF FN
+     DEF FNname(arg...)] = expression
+     DEF SUB
+     DEFDBL letter[-letter] [, ...]
+     DEFINT  letter[-letter] [, ...]
+     DEFSNG letter[-letter] [, ...]
+     DEFSTR letter[-letter] [, ...]
+     DEG( X )
+     DELETE line [- line]
+     DIM variable( elements [, ...]) [, ...]
+     DO
+     DO UNTIL expression
+     DO WHILE expression
+     EDIT
+     ELSE
+     ELSEIF
+     END
+     END FUNCTION
+     END IF
+     END SELECT
+     END SUB
+     ENVIRON$( A$ )
+     ENVIRON( A$ )
+     EOF( X )
+     EPS( X )
+     ERASE variable [, ...]
+     ERL
+     ERR
+     ERR$
+     ERROR( X )
+     ERROR( X, A$ )
+     EXIT
+     EXIT DO
+     EXIT FOR
+     EXIT FUNCTION
+     EXIT SUB
+     EXIT UNTIL
+     EXIT WHILE
+     EXP( X )
+     FIELD [#] device-number, number AS string-variable$ [, ...]
+     FILEATTR( X, Y )
+     FILES
+     FILES( A$ )
+     FIX( X )
+     FNCS
+     FOR variable = start TO finish [STEP increment]
+     FP( X )
+     FRE
+     FRE( A$ )
+     FRE( X )
+     FREEFILE
+     FUNCTION [ ( parameter [, ...  ] ) ]
+     GET( X )
+     GET( X, Y )
+     GO
+     GOSUB line
+     GOTO line
+     HELP name
+     HEX$( X )
+     IF expression THEN
+     IF expression THEN line1 [ELSE line2]
+     INKEY$
+     INP( X )
+     INPUT [# device-number]|[;]["prompt string";]list of variables
+     INPUT$( X )
+     INPUT$( X, Y )
+     INSTR( A$, B$ )
+     INSTR( X, A$, B$ )
+     INT( X )
+     IP( X )
+     KILL( A$ )
+     LCASE$( A$ )
+     LEFT$( A$, X )
+     LEN( A$ )
+     [LET] variable = expression
+     LINE INPUT [[#] device-number,]["prompt string";] string-variable$
+     LIST line1 [- line2]
+     LOAD [file-name$]
+     LOC( X )
+     LOCATE( X, Y )
+     LOF( X )
+     LOG( X )
+     LOG10( X )
+     LOG2( X )
+     LOOP
+     LOOP UNTIL
+     LOOP WHILE
+     LPOS
+     LPRINT [USING format-string$;] expressions...
+     LSET string-variable$ = expression
+     LTRIM$( A$ )
+     LWIDTH( X )
+     MAINTAINER
+     MAX( X, Y )
+     MAXBYT
+     MAXCUR
+     MAXDBL
+     MAXDEV
+     MAXINT
+     MAXLEN( A$ )
+     MAXLNG
+     MAXLVL
+     MAXNUM
+     MAXSNG
+     MERGE file-name
+     MID$( A$, X )
+     MID$( A$, X, Y )
+     MID$( variable$, start [, count ] ) = expression
+     MIN( X, Y )
+     MINBYT
+     MINCUR
+     MINDBL
+     MINDEV
+     MININT
+     MINLNG
+     MINNUM
+     MINSNG
+     MKC$( X )
+     MKD$( X )
+     MKDIR( A$ )
+     MKI$( X )
+     MKL$( X )
+     MKS$( X )
+     MOD( X, Y )
+     NAME old-file-name AS new-file-name
+     NAME( A$, B$ )
+     NEW
+     NEXT [variable]
+     NULL( X )
+     OCT$( X )
+     ON ERROR GOTO errline   |   ON ERROR RESUME NEXT
+     ON TIMER count GOSUB line
+     ON expression GOTO | GOSUB line [, ...]
+     OPEN file-name [FOR INPUT|OUTPUT|APPEND|BINARY|RANDOM] AS [#]device-number [LEN = record-length]
+     OPEN( A$, X, B$ )
+     OPEN( A$, X, B$, Y )
+     OPTION ...
+     OPTION ANGLE DEGREES
+     OPTION ANGLE RADIANS
+     OPTION ARITHMETIC DECIMAL
+     OPTION ARITHMETIC FIXED
+     OPTION ARITHMETIC NATIVE
+     OPTION BASE 0
+     OPTION BASE 1
+     OPTION BUGS OFF
+     OPTION BUGS ON
+     OPTION COMPARE BINARY
+     OPTION COMPARE TEXT
+     OPTION COVERAGE OFF
+     OPTION COVERAGE ON
+     OPTION INDENT number
+     OPTION STRICT OFF
+     OPTION STRICT ON
+     OPTION TERMINAL ADM-3A
+     OPTION TERMINAL ANSI
+     OPTION TERMINAL NONE
+     OPTION TRACE OFF
+     OPTION TRACE ON
+     OPTION VERSION [version] 
+     ORD( A$ )
+     OUT( X, Y )
+     PEEK( X )
+     PI
+     POKE( X, Y )
+     POS
+     POS( A$, B$ )
+     POS( A$, B$, X )
+     POS( X )
+     PRINT [# device-number,][USING format-string$;] expressions...
+     PUT( X )
+     PUT( X, Y )
+     QUIT
+     RAD( X )
+     RANDOMIZE
+     RANDOMIZE( X )
+     READ variable [, ...]
+     REM ...
+     REMAINDER( X, Y )
+     RENUM
+     REPEAT$( X, A$ )
+     REPEAT$( X, Y )
+     RESET
+     RESTORE [line]
+     RESUME [ 0 | line | NEXT ]
+     RETURN
+     RIGHT$( A$, X )
+     RMDIR( A$ )
+     RND
+     RND( X )
+     ROUND( X, Y )
+     RSET string-variable$ = expression
+     RTRIM$( A$ )
+     RUN [line | file-name$]
+     SAVE [file-name$]
+     SEC( X )
+     SEEK( X )
+     SEEK( X, Y )
+     SELECT
+     SELECT CASE expression
+     SGN( X )
+     SHELL( A$ )
+     SIN( X )
+     SINH( X )
+     SPACE$( X )
+     SPC( X )
+     SQR( X )
+     STOP
+     STR$( X )
+     STRING$( X, A$ )
+     STRING$( X, Y )
+     SUB name [ ( parameter [,...] ) ]
+     SWAP variable, variable
+     SYSTEM
+     TAB( X )
+     TAN( X )
+     TANH( X )
+     TIME
+     TIME$
+     TIMER
+     TIMER ON | STOP | OFF
+     TRIM$( A$ )
+     TROFF
+     TRON
+     TRUNCATE( X, Y )
+     UCASE$( A$ )
+     UEND
+     UNTIL expression
+     USER LBL
+     VAL( A$ )
+     VARS
+     WAIT( X, Y )
+     WAIT( X, Y, Z )
+     WEND
+     WHILE
+     WIDTH( X )
+     WIDTH( X, Y )
+     WRITE [# device-number,] element [, .... ]
+
+
+
+
+CHANGE HISTORY
+
+
+CHANGES FROM 2.61 to 3.00
+
+   * Code redesign from Howard Wulf, AF5NE
+
+
+CHANGES FROM 2.60 to 2.61
+
+   * Bug fix from Matthias Rustler
+
+
+CHANGES FROM 2.50 to 2.60
+
+   * New maths functions and append mode support from Edmond Orignac
+   
+   * Bug fixes
+
+
+CHANGES FROM 2.40 to 2.50
+
+   * Bug fixes
+   
+   * New compilation procedure for MVS and CMS
+
+
+CHANGES FROM 2.30 to 2.40
+
+   * Bug fixes from Bill Chatfield
+   
+   * Updated documentation
+
+   * Added support for compiling on CMS (another IBM mainframe OS)
+
+
+CHANGES FROM 2.20pl2 to 2.30
+
+   * Minor bug fixes, cosmetic improvements and portability improvements
+
+   * Added support for compiling on MVS (IBM mainframe)
+
+
+CHANGES FROM 2.20pl1 to 2.20pl2
+
+bwb_cmd.c
+   Fixed calling stack level logic in RETURN statement to prevent erroneous
+   "RETURN without GOSUB" messages.
+
+bwb_cnd.c
+bwb_stc.c
+
+   Changed continuation condition for WHILE, ELSEIF, and LOOP UNTIL
+   to be != FALSE, not == TRUE.  More in line with common commercial
+   BASIC implementations.
+
+bwb_mth.c
+   Fixed initialization in VAL function so that old results are not later
+   returned as values.
+
+bwb_var.c
+   Added parenthesis level checking to dim_getparams. Using multi-level
+   expressions as array subscripts was causing the program to bomb.
+
+bwx_iqc.c
+bwx_tty.c
+bwb_mes.h
+   Added second copyright notice.
+
+bwb_dio.c
+bwb_str.c
+   Added support for strings longer than 255 characters.
+
+bwb_prn.c
+   Disabled tab expansion and print width checks when not printing to a file.
+
+bwb_inp.c
+   Fixed LINE INPUT file reads to accommodate strings of length MAXSTRINGSIZE.
+
+bwx_ncu.h
+bwx_ncu.c
+   New files.  Code for UNIX ncurses interface, compliments of L.C. Benschop,
+   Eindhoven, The Netherlands.
+
+Makefile.ncu
+   New files.  Sample makefile for ncurses implementation.
+
+bwbasic.h
+   Revised defines for MININTSIZE and MAXINTSIZE from 16-bit to 32-bit limits.
+   Revised define for MAXSTRINGSIZE from 255 to 5000 characters.
+   Changed string length from unsigned char to unsigned int to support strings
+   longer than 255 characters.
+   Added support for new ncurses package.
+   Revised VERSION define to reflect above changes.
+
+
+CHANGES FROM 2.20 to 2.20pl1
+
+bwb_cnd.c
+
+   Moved init routine for bwb_while so that it would be initialized regardless
+   of expression value, not just if TRUE.  This was causing some segmentation
+   faults in WHILE-WEND loops.
+
+bwb_elx.c
+
+   Plugged gaping memory leak.  Temp variable space for expression evaluation
+   was being allocated but not freed when done (oops!).
+
+bwb_fnc.c
+
+   Added check for NULL return from getenv to prevent segmentation faults.
+
+bwbasic.h
+   Revised VERSION define to reflect above changes.
+
+
+
+CHANGES FROM 2.10 to 2.20:
+
+   * Plugged numerous memory leaks, resolved memory overruns and allocation
+     difficulties.
+
+   * General cleanup and bug fixes, too many to list in detail here.
+     The major problem areas addressed were:
+
+      - RUN command with file name argument
+      - nested and cascaded FOR-NEXT loops
+      - PRINT USING
+      - EOF, LOF functions
+      - string concatenation
+      - operator hierarchy
+      - multi-level expression evaluation
+      - hex constant interpretation
+      - hex and octal constants in INPUT and DATA statements
+
+   * Added a CLOSE all files feature (when no argument supplied).
+
+   * Added a unary minus sign operator.
+
+   * Added a MID$ command to complement the MID$ function.
+
+   * Added a RENUM facility in a standalone program.
+
+   * Added checking in configure for unistd.h (important on Sun systems).
+
+
+
+
